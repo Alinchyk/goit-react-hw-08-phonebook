@@ -1,6 +1,6 @@
 import { AuthNavStyled } from './AuthNav.styled';
 
-export const AuthNav = () => {
+const AuthNav = () => {
   return (
     <div>
       <AuthNavStyled to="/register">Register</AuthNavStyled>|
@@ -8,3 +8,5 @@ export const AuthNav = () => {
     </div>
   );
 };
+
+export default AuthNav;

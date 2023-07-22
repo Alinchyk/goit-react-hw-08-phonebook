@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux';
 import { isAuth } from 'redux/auth/auth-selectors';
 import { WrapperHeader, WrapperMain, NavStyled } from './Layout.styled';
 import Loader from 'components/Loader/Loader';
-import { AuthNav } from 'components/AuthNav/AuthNav';
-import { UserMenu } from 'components/UserMenu/UserMenu';
+import AuthNav from 'components/AuthNav/AuthNav';
+import UserMenu from 'components/UserMenu/UserMenu';
 
 const Navigation = ({ isLogin }) => {
   return (

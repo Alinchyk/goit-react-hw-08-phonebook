@@ -3,7 +3,7 @@ import { logOut } from 'redux/auth/auth-operation';
 import { getUser } from 'redux/auth/auth-selectors';
 import { StyledName } from './UserMenu.styled';
 
-export const UserMenu = () => {
+const UserMenu = () => {
   const { name } = useSelector(getUser);
   const dispatch = useDispatch();
 
@@ -18,3 +18,5 @@ export const UserMenu = () => {
     </div>
   );
 };
+
+export default UserMenu;

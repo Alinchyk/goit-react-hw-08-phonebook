@@ -1,4 +1,4 @@
-import { lazy, useEffect } from 'react';
+import React, { lazy, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import Layout from './Layout/Layout';
@@ -7,7 +7,6 @@ import { PrivateRoute } from './Routes/PrivateRoute';
 import { PublicRoute } from './Routes/PublicRoute'; 
 import { useDispatch } from 'react-redux';
 import { getCurrent } from 'redux/auth/auth-operation'; 
-
 
 const HomePage = lazy(() => import('./views/HomeView/HomeView'));
 const ContactsPage = lazy(() => import('../components/views/PhonebookView/PhonebookView'));
@@ -25,13 +24,34 @@ const App = () => {
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Navigate to="home" />} />
-          <Route path="home" element={<HomePage />} />
-          <Route path="register" element={<PublicRoute><RegisterPage /></PublicRoute>} />
-          <Route path="login" element={<PublicRoute><LoginPage /></PublicRoute>} />
-          <Route path="contacts" element={<PrivateRoute><ContactsPage /></PrivateRoute>} />
+          <Route index element={<Navigate to="home"></Navigate>} />
 
-           <Route path="*" element={<NotFoundView />} />
+          <Route path="home" element={<HomePage />} />
+          <Route
+            path="register"
+            element={
+              <PublicRoute>
+                <RegisterPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="login"
+            element={
+              <PublicRoute>
+                <LoginPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="contacts"
+            element={
+              <PrivateRoute>
+                <ContactsPage />
+              </PrivateRoute>
+            }
+          />
+          <Route path="*" element={<NotFoundView />} />
         </Route>
       </Routes>
 
@@ -40,4 +60,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default App
